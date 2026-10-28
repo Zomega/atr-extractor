@@ -2,7 +2,7 @@
 
 [![AI Influence Level: AIL4](<https://img.shields.io/badge/AI_Influence_Level-AIL4_(AI_Created%2C_Human_Basic_Idea)-4f8cff>)](https://danielmiessler.com/blog/ai-influence-level-ail)
 
-A standalone, cross-platform command-line tool and Python library for extracting, decoding, and visualizing **`.ATR` (`ATR11`)** sprite descriptors and **`.RSC` (`BWRF10`)** resource bundles from Knowledge Adventure's **JumpStart Adventures 3rd Grade: Mystery Mountain (1996)**. It may also work on other Knowledge Adventure games from the same era.
+A standalone, cross-platform command-line tool and Python library for extracting, decoding, and visualizing **`.ATR` (`ATR11`)** sprite descriptors and **`.RSC` (`BWRF10`)** resource bundles used in 1990s Knowledge Adventure games (originally reverse-engineered from _JumpStart Adventures 3rd Grade: Mystery Mountain_).
 
 > [!NOTE]
 > **AI Disclosure — [AI Influence Level (AIL)](https://danielmiessler.com/blog/ai-influence-level-ail): `AIL4` (AI Created, Human Basic Idea)**
@@ -28,10 +28,10 @@ pip install .
 
 ### 2. Basic Usage
 
-**Extract everything directly from a JumpStart 3rd Grade ISO image:**
+**Extract everything directly from a disc ISO image:**
 
 ```bash
-python atr_extractor.py --input=JUMPSTART_3.iso --output=output/
+python atr_extractor.py --input=image.iso --output=output/
 ```
 
 **Extract from a directory containing `.ATR` files (and `.BMP` / `.PNG` palettes) or `.RSC` archives:**
@@ -43,15 +43,15 @@ python atr_extractor.py --input=path/to/atrs --output=output/
 **Extract a single bundle or actor:**
 
 ```bash
-python atr_extractor.py --input=JUMPSTART_3.iso --bundle=AG001 --output=output/
-python atr_extractor.py --input=JUMPSTART_3.iso --bundle=AG001 --actor=AGM001 --output=output/
+python atr_extractor.py --input=image.iso --bundle=AG001 --output=output/
+python atr_extractor.py --input=image.iso --bundle=AG001 --actor=AGM001 --output=output/
 ```
 
 **Toggle specific outputs using feature flags:**
 
 ```bash
 # Generate only individual frames, actor sheets, and JSON metadata (skip GIFs and bundle atlases)
-python atr_extractor.py --input=JUMPSTART_3.iso --no-animations --no-bundle-atlas --no-scene-composite
+python atr_extractor.py --input=image.iso --no-animations --no-bundle-atlas --no-scene-composite
 ```
 
 ---
@@ -111,4 +111,3 @@ See [**`docs/ATR_FORMAT.md`**](docs/ATR_FORMAT.md) for the complete reverse-engi
 - Byte-level header, `IMAGE` (`CTrajectoryNode`), `SEQUENCE` (`CTrajectoryPath`), and 112-byte `ENTRY` (`CTrajectoryFrame`) structures
 - Parent/child `.ATR` frame sharing and runtime origin anchoring
 - The custom 12-bit MSB-first transparency-segregated LZW compression algorithm
-

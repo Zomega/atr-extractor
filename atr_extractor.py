@@ -1224,10 +1224,10 @@ def build_arg_parser() -> argparse.ArgumentParser:
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=(
             "Examples:\n"
-            "  python atr_extractor.py --input=JUMPSTART_3.iso --output=output/\n"
-            "  python atr_extractor.py --input=assets/rsc/AG001 --output=output/\n"
-            "  python atr_extractor.py --input=JUMPSTART_3.iso --bundle=AG001 --no-animations\n"
-            "  python atr_extractor.py --input=assets/rsc/AG001/AGM001.ATR --inspect\n"
+            "  python atr_extractor.py --input=image.iso --output=output/\n"
+            "  python atr_extractor.py --input=path/to/atrs --output=output/\n"
+            "  python atr_extractor.py --input=image.iso --bundle=AG001 --no-animations\n"
+            "  python atr_extractor.py --input=path/to/AGM001.ATR --inspect\n"
         ),
     )
     parser.add_argument(
