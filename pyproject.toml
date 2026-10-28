@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atr-extractor"
+version = "1.0.0"
+description = "Standalone cross-platform extractor and decoder for Knowledge Adventure ATR11 sprites, BWRF10 RSC bundles, and ISO images."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = [
+    "Pillow>=9.0.0",
+    "pycdlib>=1.14.0",
+]
+
+[project.scripts]
+atr-extractor = "atr_extractor:main"
+
+[tool.setuptools]
+py-modules = ["atr_extractor"]
